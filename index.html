@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye Gate - Controle Facial</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <i class="fas fa-eye"></i>
+      </div>
+      <h1>EYE GATE</h1>
+      <p>Sistema Inteligente de Controle Facial</p>
+    </header>
+
+    <!-- Cards -->
+    <main class="cards">
+      <!-- Card Cadastro -->
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-user-plus"></i>
+          <h2>Cadastro</h2>
+        </div>
+        <p>Registre novos alunos</p>
+        <button onclick="abrirCadastro()" class="btn yellow">INICIAR CADASTRO</button>
+      </div>
+
+      <!-- Card Reconhecimento -->
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-camera"></i>
+          <h2>Reconhecimento</h2>
+        </div>
+        <p>Identificar e registrar entrada</p>
+        <button onclick="abrirCamera()" class="btn blue">ABRIR CÂMERA</button>
+      </div>
+
+      <!-- Card Status -->
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-users"></i>
+          <h2>Status</h2>
+        </div>
+        <p id="alunos-count">0 alunos no sistema</p>
+        <button onclick="atualizarLista()" class="btn yellow">ATUALIZAR LISTA</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Novo Cadastro -->
+  <div id="modalCadastro" class="modal">
+    <div class="modal-content">
+      <h2>Novo Cadastro</h2>
+      
+      <form id="formCadastro">
+        <input type="text" placeholder="Nome completo" required>
+        <input type="text" placeholder="CGM" required>
+        <input type="text" placeholder="Turma (Ex: 3A)" required>
+        
+        <select required>
+          <option value="">Selecione o turno</option>
+          <option value="manha">Manhã</option>
+          <option value="tarde">Tarde</option>
+          <option value="noite">Noite</option>
+        </select>
+
+        <div class="upload-area">
+          <label for="foto">Escolher arquivo</label>
+          <input type="file" id="foto" accept="image/*">
+          <span id="file-name">Nenhum arquivo escolhido</span>
+        </div>
+
+        <button type="submit" class="btn yellow">Salvar no Banco</button>
+        <button type="button" onclick="fecharModal()" class="btn gray">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
